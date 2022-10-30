@@ -1,0 +1,78 @@
+<!-- On Way Binding -->
+<!-- String Interpolation -->
+<p>My name is: {{ myName }}</p>
+<div>{{ 10 + 2 }}</div>
+<!-- <div>{{printMyName('Yoyo')}}</div> -->
+<div>{{ animalsNames[1] }}</div>
+
+<!-- Property Binding -->
+<img [src]="giraffeUrl" alt="" width="200" />
+
+<h1 [innerText]="myName"></h1>
+
+<!-- Event Binding -->
+<button (click)="buttonClicked()">Click me</button>
+
+<!-- Two Way Binding -->
+<p>TWO WAY</p>
+<input type="text" [(ngModel)]="title" />
+<p>{{ title }}</p>
+
+<!-- Directives -->
+<!-- 1. Components -->
+<!-- <app-navbar></app-navbar> -->
+
+<!-- 2. Structural Directives -->
+<!-- *ngFor -->
+
+<ul>
+  <li *ngFor="let student of studentsArr">
+    {{ student.name }} - {{ student.age }}
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentsArr">
+      <td>{{ student.name }}</td>
+      <td>{{ student.age }}</td>
+    </tr>
+  </tbody>
+</table>
+<input type="text" [(ngModel)]="x" />
+<div *ngIf="x > 5; else small">
+  <p>x is greather than 5</p>
+</div>
+
+<ng-template #small>
+  <p>x is smaller than 5</p>
+</ng-template>
+
+<div *ngIf="IsStudent">
+  <p>I'm a student</p>
+</div>
+
+<input type="number" [(ngModel)]="y" placeholder="Search" />
+
+<div [ngSwitch]="y">
+  <div *ngSwitchCase="1">One</div>
+  <div *ngSwitchCase="2">Two</div>
+  <div *ngSwitchCase="3">Three</div>
+  <div *ngSwitchCase="4">Four</div>
+  <div *ngSwitchCase="5">Five</div>
+  <div *ngSwitchDefault>Default</div>
+</div>
+
+<!-- 3. Atttribute Directives -->
+<!-- ngModel -->
+
+<div [ngClass]="'text-danger bg-primary px-2'">HELLO 1</div>
+<div [ngClass]="['text-info',' bg-secondary','px-2']">HELLO 2</div>
+<div [ngClass]="{'bg-danger': y < 2, 'bg-success': y >= 2}" [ngStyle]="{paddingLeft:'0.5rem'}">HELLO 3</div>
+<div [ngStyle]="{paddingLeft:'0.5rem',backgroundColor:'yellow',color:'red'}">Yonathan</div><div [ngStyle]="{ color: y < 2 ? 'green' : 'red' }">Dynamic inline style</div>

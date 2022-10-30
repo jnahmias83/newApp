@@ -1,0 +1,13 @@
+<p
+  [ngClass]="{
+    'text-danger': childCount % 2 == 0,
+    'text-success': childCount % 2 == 1
+  }"
+>
+  My name is {{ name }}
+</p>
+<div>Child count is {{ childCount }}</div>
+
+<button (click)="inc()">Increment</button>
+<button (click)="dec()">Decrement</button>
+  

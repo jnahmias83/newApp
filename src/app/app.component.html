@@ -1,1 +1,21 @@
-<h1>Yonathan</h1>
+<div [ngClass]="'container'">
+  <app-navbar [siteName]="webName"></app-navbar>
+  <h1>Yonathan</h1>
+
+  <app-home></app-home>
+
+  <button (click)="inc()">Increment</button>
+  <button (click)="dec()">Decrement</button>
+  <p>App count {{count}}</p>
+
+  <app-child [name]="'Mor'" [childCount]="count" (countChanged)="countChangedHandler($event)"></app-child>
+  <app-child #avi [name]="'Avi'" ></app-child>
+  <p>{{avi.childCount}}
+    {{avi.college}}
+    {{avi.print()}}
+    {{child.college}}
+   </p>
+
+   <app-employees-list></app-employees-list>
+   <app-employees-table></app-employees-table>
+</div>
